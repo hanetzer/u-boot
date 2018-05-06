@@ -48,6 +48,8 @@ size_t rockchip_sdram_size(phys_addr_t reg)
 		      rank, col, bk, cs0_row, bw, row_3_4);
 	}
 
+	size_mb = min(size_mb, SDRAM_MAX_SIZE/SZ_1M);
+
 	return (size_t)size_mb << 20;
 }
 

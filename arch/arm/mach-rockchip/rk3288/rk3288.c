@@ -89,6 +89,26 @@ int arch_cpu_init(void)
 	rk_clrreg(&grf->soc_con0, 1 << 12);
 
 	rk3288_qos_init();
+
+	if (IS_ENABLED(CONFIG_ROCKCHIP_USB_UART)) {
+		rk_clrsetreg(&grf->uoc0_con[0],
+			SIDDQ_MASK | UOC_DISABLE_MASK | COMMON_ON_N_MASK,
+			1 << SIDDQ_SHIFT | 1 << UOC_DISABLE_SHIFT |
+			1 << COMMON_ON_N_SHIFT);
+		rk_clrsetreg(&grf->uoc0_con[2],
+			SOFT_CON_SEL_MASK, 1 << SOFT_CON_SEL_SHIFT);
+		rk_clrsetreg(&grf->uoc0_con[3],
+			OPMODE_MASK | XCVRSELECT_MASK |
+			TERMSEL_FULLSPEED_MASK | SUSPENDN_MASK,
+			OPMODE_NODRIVING << OPMODE_SHIFT |
+			XCVRSELECT_FSTRANSC << XCVRSELECT_SHIFT |
+			1 << TERMSEL_FULLSPEED_SHIFT |
+			1 << SUSPENDN_SHIFT);
+		rk_clrsetreg(&grf->uoc0_con[3],
+			BYPASSSEL_MASK | BYPASSDMEN_MASK,
+			1 << BYPASSSEL_SHIFT | 1 << BYPASSDMEN_SHIFT);
+	}
+
 #endif
 
 	return 0;

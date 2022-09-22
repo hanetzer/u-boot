@@ -554,6 +554,9 @@ enum {
 	/* GRF_SOC_CON7 */
 	GRF_UART_DBG_SEL_SHIFT  = 10,
 	GRF_UART_DBG_SEL_MASK   = 3 << GRF_UART_DBG_SEL_SHIFT,
+	// assumptions, none of this is documented in the TRM as far as I can see
+	GRF_UART_DBG_SEL_A      = 0,
+	GRF_UART_DBG_SEL_B      = 1,
 	GRF_UART_DBG_SEL_C      = 2,
 
 	/* GRF_SOC_CON20 */

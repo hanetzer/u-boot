@@ -157,17 +157,17 @@ void board_debug_uart_init(void)
 				  GPIO_PULL_NORMAL);
 	}
 
-	/* Enable early UART2 channel C on the RK3399 */
-	rk_clrsetreg(&grf->gpio4c_iomux,
-		     GRF_GPIO4C3_SEL_MASK,
-		     GRF_UART2DGBC_SIN << GRF_GPIO4C3_SEL_SHIFT);
-	rk_clrsetreg(&grf->gpio4c_iomux,
-		     GRF_GPIO4C4_SEL_MASK,
-		     GRF_UART2DBGC_SOUT << GRF_GPIO4C4_SEL_SHIFT);
-	/* Set channel C as UART2 input */
+	/* Enable early UART2 channel A on the RK3399 */
+	rk_clrsetreg(&grf->gpio4b_iomux,
+		     GRF_GPIO4B0_SEL_MASK,
+		     GRF_UART2DBGA_SIN << GRF_GPIO4B0_SEL_SHIFT);
+	rk_clrsetreg(&grf->gpio4b_iomux,
+		     GRF_GPIO4B1_SEL_MASK,
+		     GRF_UART2DBGA_SOUT << GRF_GPIO4B0_SEL_SHIFT);
+	/* Set channel A as UART2 input */
 	rk_clrsetreg(&grf->soc_con7,
 		     GRF_UART_DBG_SEL_MASK,
-		     GRF_UART_DBG_SEL_C << GRF_UART_DBG_SEL_SHIFT);
+		     GRF_UART_DBG_SEL_A << GRF_UART_DBG_SEL_SHIFT);
 #endif
 }
 #endif

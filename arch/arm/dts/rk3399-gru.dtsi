@@ -510,7 +510,7 @@ ap_i2c_audio: &i2c8 {
 };
 
 &sdmmc {
-	status = "okay";
+	status = "disabled";
 
 	/*
 	 * Note: configure "sdmmc_cd" as card detect even though it's actually
@@ -520,14 +520,11 @@ ap_i2c_audio: &i2c8 {
 	 * turned on that the system will still make sure the port is
 	 * configured as SDMMC and not JTAG.
 	 */
-	pinctrl-names = "default";
-	pinctrl-0 = <&sdmmc_clk &sdmmc_cmd &sdmmc_cd &sdmmc_cd_pin
-		     &sdmmc_bus4>;
 
 	bus-width = <4>;
 	cap-mmc-highspeed;
 	cap-sd-highspeed;
-	cd-gpios = <&gpio4 24 GPIO_ACTIVE_LOW>;
+	// cd-gpios = <&gpio4 24 GPIO_ACTIVE_LOW>;
 	disable-wp;
 	sd-uhs-sdr12;
 	sd-uhs-sdr25;

@@ -638,7 +638,7 @@
 		reg-shift = <2>;
 		reg-io-width = <4>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&uart2c_xfer>;
+		pinctrl-0 = <&uart2a_xfer>;
 		status = "disabled";
 	};
 
@@ -2571,7 +2571,7 @@
 			uart2a_xfer: uart2a-xfer {
 				rockchip,pins =
 					<4 RK_PB0 2 &pcfg_pull_up>,
-					<4 RK_PB1 2 &pcfg_pull_none>;
+					<4 RK_PB1 2 &pcfg_pull_up>;
 			};
 		};
 

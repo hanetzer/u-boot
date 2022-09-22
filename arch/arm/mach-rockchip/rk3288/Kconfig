@@ -37,7 +37,9 @@ config TARGET_CHROMEBOOK_MINNIE
 
 config TARGET_CHROMEBOOK_SPEEDY
 	bool "Google/Rockchip Veyron-Speedy Chromebook"
+	select HAS_ROM
 	select BOARD_LATE_INIT
+	select ROCKCHIP_SPI_IMAGE
 	help
 	  Speedy is a RK3288-based clamshell device with 2 USB 2.0 ports,
 	  micro HDMI, an 11.6 inch display, micro-SD card,
